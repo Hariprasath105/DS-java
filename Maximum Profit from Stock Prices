@@ -1,0 +1,19 @@
+public class StockProfit {
+    public static int maxProfit(int[] prices) {
+        int maxProfit = Integer.MIN_VALUE;
+        for (int buy = 0; buy < prices.length - 1; buy++) {
+            for (int sell = buy + 1; sell < prices.length; sell++) {
+                int profit = prices[sell] - prices[buy];
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                }
+            }
+        }
+        return maxProfit;
+    }
+
+    public static void main(String[] args) {
+        int[] prices = {67000, 73000, 57000, 63000, 47000};
+        System.out.println("Maximum Profit: " + maxProfit(prices));
+    }
+}
