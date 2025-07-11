@@ -1,0 +1,27 @@
+public class HappyNumber {
+    public static int sumOfSquares(int num) {
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit * digit;
+            num /= 10;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int number = 19;
+        int cycle_no = 0;
+        int finalNumber = number;
+
+        for (int i = 0; i < 10; i++) {
+            finalNumber = sumOfSquares(finalNumber);
+            cycle_no++;
+            if (finalNumber == 1) break;
+        }
+
+        finalNumber = (finalNumber == 1) ? 1 : finalNumber;
+        System.out.println("Final Number: " + finalNumber);
+        System.out.println("Cycle No: " + cycle_no);
+    }
+}
