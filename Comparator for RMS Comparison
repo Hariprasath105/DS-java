@@ -1,0 +1,21 @@
+public class RMSComparator {
+    public static int comparator(float[][] arr, int index1, int index2) {
+        double rms1 = Math.sqrt(0.5 * (arr[index1][0] * arr[index1][0] + arr[index1][1] * arr[index1][1]));
+        double rms2 = Math.sqrt(0.5 * (arr[index2][0] * arr[index2][0] + arr[index2][1] * arr[index2][1]));
+
+        if (rms1 > rms2) return -1;
+        else if (rms1 < rms2) return 1;
+        else {
+            if (arr[index1][1] > arr[index2][1]) return -1;
+            else if (arr[index1][1] < arr[index2][1]) return 1;
+            else return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        float[][] studentmarks = {
+            {90, 30}, {60, 20}
+        };
+        System.out.println("Comparison: " + comparator(studentmarks, 0, 1)); // should print -1
+    }
+}
